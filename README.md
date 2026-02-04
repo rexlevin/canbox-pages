@@ -1,8 +1,23 @@
 # Canbox Pages
 
-Canbox 项目的静态网站，托管在 GitHub Pages 和 Gitee Pages。
+Canbox 项目的 static website, hosted on GitHub Pages and Gitee Pages.
 
-## 技术栈
+---
+
+## 🚧 Project Note
+
+Both Canbox and Canbox Pages are created by a self-taught developer (learned frontend development independently). While the basic functionality is implemented, there is still room for improvement in many areas.
+
+Welcome to join and help improve this project:
+
+- ✅ Submit PRs to improve website design and interactions
+- ✅ Enhance documentation content
+- ✅ Fix typos and errors
+- ✅ Submit your apps to the App Center
+
+---
+
+## Tech Stack
 
 - 纯 HTML5 + CSS3 + JavaScript
 - 响应式设计，支持移动端
