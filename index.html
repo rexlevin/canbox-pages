@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" data-zh="Canbox - 轻量级应用运行时平台，开发和分享你的应用程序" data-en="Canbox - Lightweight application runtime platform, develop and share your apps" content="Canbox - 轻量级应用运行时平台，开发和分享你的应用程序">
+    <meta name="keywords" data-zh="Canbox, Electron, 应用平台, 开发工具" data-en="Canbox, Electron, App Platform, Development Tools" content="Canbox, Electron, 应用平台, 开发工具">
+    <title data-zh="Canbox - 轻量级应用运行时平台" data-en="Canbox - Lightweight Application Runtime Platform">Canbox - 轻量级应用运行时平台</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="/" class="logo">
+                <img src="/images/logo.png" alt="Canbox Logo" class="logo-img">
+                <span class="logo-text">Canbox</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#features" data-zh="功能特性" data-en="Features">功能特性</a></li>
+                <li><a href="#usage" data-zh="使用指南" data-en="Usage">使用指南</a></li>
+                <li><a href="#development" data-zh="开发文档" data-en="Docs">开发文档</a></li>
+                <li><a href="#download" data-zh="下载" data-en="Download">下载</a></li>
+            </ul>
+            <div class="lang-switch">
+                <a href="#en">EN</a> / <a href="#zh" class="active">中</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 首页横幅 -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <img src="/images/logo_512x512.png" alt="Canbox Logo" class="hero-logo">
+            <h1 class="hero-title">Canbox</h1>
+            <p class="hero-subtitle" data-zh="轻量级应用运行时平台" data-en="Lightweight Application Runtime Platform">轻量级应用运行时平台</p>
+            <p class="hero-description" data-zh="一个 app 集合平台，在这里我们可以开发自己的小工具，并且分享给他人使用。<br>基于 Electron，支持 Linux、Windows、macOS" data-en="An app collection platform where we can develop our own small tools and share them with others.<br>Based on Electron, supports Linux, Windows, macOS">
+                一个 app 集合平台，在这里我们可以开发自己的小工具，并且分享给他人使用。<br>
+                基于 Electron，支持 Linux、Windows、macOS
+            </p>
+            <div class="hero-buttons">
+                <a href="#download" class="btn btn-primary" data-zh="立即下载" data-en="Download Now">立即下载</a>
+                <a href="#development" class="btn btn-secondary" data-zh="开始开发" data-en="Start Developing">开始开发</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特性介绍 -->
+    <section id="features" class="features section">
+        <div class="container">
+            <h2 class="section-title" data-zh="功能特性" data-en="Features">功能特性</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3 class="feature-title" data-zh="应用管理" data-en="App Management">应用管理</h3>
+                    <p class="feature-desc" data-zh="支持应用的安装、卸载和更新，轻松管理你的应用集合" data-en="Support app installation, uninstallation, and updates">支持应用的安装、卸载和更新，轻松管理你的应用集合</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title" data-zh="无服务器架构" data-en="Serverless Architecture">无服务器架构</h3>
+                    <p class="feature-desc" data-zh="通过 GitHub、Gitee 等进行应用分享，导入打包好的程序包" data-en="Share apps via GitHub, Gitee, etc. Import packaged apps">通过 GitHub、Gitee 等进行应用分享，导入打包好的程序包</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title" data-zh="快捷方式" data-en="Shortcuts">快捷方式</h3>
+                    <p class="feature-desc" data-zh="为常用应用创建桌面、开始菜单快捷方式" data-en="Create desktop and start menu shortcuts for frequently used apps">为常用应用创建桌面、开始菜单快捷方式</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3 class="feature-title" data-zh="开发友好" data-en="Developer Friendly">开发友好</h3>
+                    <p class="feature-desc" data-zh="轻量级运行时，提供核心能力，让开发者专注于业务逻辑" data-en="Lightweight runtime providing core capabilities">轻量级运行时，提供核心能力，让开发者专注于业务逻辑</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💾</div>
+                    <h3 class="feature-title" data-zh="数据持久化" data-en="Data Persistence">数据持久化</h3>
+                    <p class="feature-desc" data-zh="基于 PouchDB 和 electron-store 的本地数据存储" data-en="Local data storage based on PouchDB and electron-store">基于 PouchDB 和 electron-store 的本地数据存储</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3 class="feature-title" data-zh="多平台支持" data-en="Multi-platform">多平台支持</h3>
+                    <p class="feature-desc" data-zh="基于 Electron，支持 Linux、Windows、macOS" data-en="Based on Electron, supports Linux, Windows, macOS">基于 Electron，支持 Linux、Windows、macOS</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 使用指南 -->
+    <section id="usage" class="usage section">
+        <div class="container">
+            <h2 class="section-title" data-zh="使用指南" data-en="Usage Guide">使用指南</h2>
+            <div class="usage-grid">
+                <div class="usage-card">
+                    <h3 data-zh="我的 APP" data-en="My Apps">我的 APP</h3>
+                    <p data-zh="导入开发者打包好的应用包（ZIP 格式），一键安装使用" data-en="Import packaged apps (ZIP format), install with one click">导入开发者打包好的应用包（ZIP 格式），一键安装使用</p>
+                </div>
+                <div class="usage-card">
+                    <h3 data-zh="APP 仓库" data-en="App Repository">APP 仓库</h3>
+                    <p data-zh="添加应用源，浏览和安装社区贡献的应用" data-en="Add app sources, browse and install community apps">添加应用源，浏览和安装社区贡献的应用</p>
+                </div>
+                <div class="usage-card">
+                    <h3 data-zh="APP 开发" data-en="App Development">APP 开发</h3>
+                    <p data-zh="开发自己的应用，打包分享给他人使用" data-en="Develop your own apps, package and share with others">开发自己的应用，打包分享给他人使用</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 开发文档 -->
+    <section id="development" class="development section">
+        <div class="container">
+            <h2 class="section-title" data-zh="开发文档" data-en="Development Docs">开发文档</h2>
+            <div class="docs-grid">
+                <a href="https://github.com/lizl6/canbox/blob/master/docs/CANBOX_DEV_CN.md" target="_blank" class="doc-card">
+                    <div class="doc-icon">📖</div>
+                    <h3 data-zh="Canbox 开发文档" data-en="Canbox Development Docs">Canbox 开发文档</h3>
+                    <p data-zh="了解 Canbox 的架构设计和实现原理" data-en="Learn about Canbox architecture and implementation">了解 Canbox 的架构设计和实现原理</p>
+                </a>
+                <a href="https://github.com/lizl6/canbox/blob/master/docs/APP_DEV_CN.md" target="_blank" class="doc-card">
+                    <div class="doc-icon">🛠️</div>
+                    <h3 data-zh="APP 开发文档" data-en="App Development Docs">APP 开发文档</h3>
+                    <p data-zh="学习如何开发 Canbox 应用" data-en="Learn how to develop Canbox apps">学习如何开发 Canbox 应用</p>
+                </a>
+                <a href="https://github.com/lizl6/canbox/blob/master/docs/API.md" target="_blank" class="doc-card">
+                    <div class="doc-icon">🔌</div>
+                    <h3 data-zh="API 文档" data-en="API Documentation">API 文档</h3>
+                    <p data-zh="查看 Runtime 提供的 API 接口" data-en="View Runtime API interfaces">查看 Runtime 提供的 API 接口</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 下载 -->
+    <section id="download" class="download section">
+        <div class="container">
+            <h2 class="section-title" data-zh="下载安装" data-en="Download & Install">下载安装</h2>
+            <div class="download-grid">
+                <a href="https://github.com/lizl6/canbox/releases" target="_blank" class="download-card">
+                    <div class="download-icon">🐧</div>
+                    <h3>Linux</h3>
+                    <p data-zh="AppImage 格式" data-en="AppImage format">AppImage 格式</p>
+                    <span class="download-tag" data-zh="推荐" data-en="Recommended">推荐</span>
+                </a>
+                <a href="https://github.com/lizl6/canbox/releases" target="_blank" class="download-card">
+                    <div class="download-icon">🪟</div>
+                    <h3>Windows</h3>
+                    <p data-zh="安装包格式" data-en="Installer format">安装包格式</p>
+                </a>
+                <a href="https://github.com/lizl6/canbox/releases" target="_blank" class="download-card">
+                    <div class="download-icon">🍎</div>
+                    <h3>macOS</h3>
+                    <p data-zh="待支持" data-en="Coming Soon">待支持</p>
+                    <span class="download-tag coming-soon" data-zh="即将推出" data-en="Coming Soon">即将推出</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Canbox</h4>
+                    <p data-zh="轻量级应用运行时平台" data-en="Lightweight Application Runtime Platform">轻量级应用运行时平台</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="链接" data-en="Links">链接</h4>
+                    <ul>
+                        <li><a href="https://github.com/lizl6/canbox" target="_blank">GitHub</a></li>
+                        <li><a href="https://gitee.com/lizl6/canbox" target="_blank">Gitee</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="许可证" data-en="License">许可证</h4>
+                    <p>Apache 2.0</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-zh="© 2026 Canbox. All rights reserved." data-en="© 2026 Canbox. All rights reserved.">&copy; 2026 Canbox. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/scripts/main.js"></script>
+</body>
+</html>

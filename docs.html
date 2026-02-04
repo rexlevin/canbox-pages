@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-zh="API 文档 - Canbox" data-en="API Docs - Canbox">API 文档 - Canbox</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/docs.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="/" class="logo">
+                <img src="/images/logo.png" alt="Canbox Logo" class="logo-img">
+                <span class="logo-text">Canbox</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/#features" data-zh="功能特性" data-en="Features">功能特性</a></li>
+                <li><a href="/#usage" data-zh="使用指南" data-en="Usage">使用指南</a></li>
+                <li><a href="/#development" data-zh="开发文档" data-en="Docs">开发文档</a></li>
+                <li><a href="/#download" data-zh="下载" data-en="Download">下载</a></li>
+            </ul>
+            <div class="lang-switch">
+                <a href="#en">EN</a> / <a href="#zh" class="active">中</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 文档内容 -->
+    <main class="docs-main">
+        <div class="container">
+            <div class="docs-layout">
+                <!-- 侧边栏 -->
+                <aside class="docs-sidebar">
+                    <nav class="docs-nav">
+                        <h3 data-zh="API 参考" data-en="API Reference">API 参考</h3>
+                        <ul>
+                            <li><a href="#store">store</a></li>
+                            <li><a href="#db">db</a></li>
+                            <li><a href="#window">window</a></li>
+                            <li><a href="#sudo">sudo</a></li>
+                            <li><a href="#dialog">dialog</a></li>
+                            <li><a href="#lifecycle" data-zh="生命周期" data-en="Lifecycle">生命周期</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+
+                <!-- 文档主体 -->
+                <div class="docs-content">
+                    <h1 data-zh="API 文档" data-en="API Documentation">API 文档</h1>
+
+                    <!-- store -->
+                    <section id="store" class="doc-section">
+                        <h2>store</h2>
+                        <p data-zh="使用 electron-store 进行数据存储" data-en="Use electron-store for data storage">使用 electron-store 进行数据存储</p>
+                        <p><strong data-zh="存储位置" data-en="Storage Location">存储位置</strong>：<code>{userData}/Users/data/{appId}/store/{name}.json</code></p>
+
+                        <h3>canbox.store.get(name, key)</h3>
+                        <p data-zh="获取存储的值。" data-en="Get the stored value.">获取存储的值。</p>
+                        <ul>
+                            <li><strong data-zh="参数" data-en="Parameters">参数</strong>
+                                <ol>
+                                    <li><code>string</code> name - <span data-zh="存储名称，对应不同的 .json 文件" data-en="Storage name, corresponds to different .json files">存储名称，对应不同的 .json 文件</span></li>
+                                    <li><code>string</code> key - <span data-zh="存储的键" data-en="Storage key">存储的键</span></li>
+                                </ol>
+                            </li>
+                            <li><strong data-zh="应答" data-en="Response">应答</strong> <code>any</code> - <span data-zh="返回存储的值" data-en="Returns the stored value">返回存储的值</span></li>
+                        </ul>
+
+                        <h3>canbox.store.set(name, key, value)</h3>
+                        <p data-zh="设置存储的值。" data-en="Set the stored value.">设置存储的值。</p>
+                        <ul>
+                            <li><strong data-zh="参数" data-en="Parameters">参数</strong>
+                                <ol>
+                                    <li><code>string</code> name - <span data-zh="存储名称，对应不同的 .json 文件" data-en="Storage name, corresponds to different .json files">存储名称，对应不同的 .json 文件</span></li>
+                                    <li><code>string</code> key - <span data-zh="存储的键" data-en="Storage key">存储的键</span></li>
+                                    <li><code>any</code> value - <span data-zh="存储的值" data-en="Storage value">存储的值</span></li>
+                                </ol>
+                            </li>
+                            <li><strong data-zh="应答" data-en="Response">应答</strong> <code>void</code></li>
+                        </ul>
+
+                        <h3>canbox.store.delete(name, key)</h3>
+                        <p data-zh="删除存储的值。" data-en="Delete the stored value.">删除存储的值。</p>
+                        <ul>
+                            <li><strong data-zh="参数" data-en="Parameters">参数</strong>
+                                <ol>
+                                    <li><code>string</code> name - <span data-zh="存储名称，对应不同的 .json 文件" data-en="Storage name, corresponds to different .json files">存储名称，对应不同的 .json 文件</span></li>
+                                    <li><code>string</code> key - <span data-zh="存储的键" data-en="Storage key">存储的键</span></li>
+                                </ol>
+                            </li>
+                            <li><strong data-zh="应答" data-en="Response">应答</strong> <code>void</code></li>
+                        </ul>
+
+                        <h3>canbox.store.clear(name)</h3>
+                        <p data-zh="清空指定存储的所有数据。" data-en="Clear all data in the specified storage.">清空指定存储的所有数据。</p>
+                        <ul>
+                            <li><strong data-zh="参数" data-en="Parameters">参数</strong>
+                                <ol>
+                                    <li><code>string</code> name - <span data-zh="存储名称，对应不同的 .json 文件" data-en="Storage name, corresponds to different .json files">存储名称，对应不同的 .json 文件</span></li>
+                                </ol>
+                            </li>
+                            <li><strong data-zh="应答" data-en="Response">应答</strong> <code>void</code></li>
+                        </ul>
+
+                        <p><strong data-zh="注意" data-en="Note">注意</strong>：<span data-zh="每个 name 对应一个独立的 .json 文件，用于存储不同类型的数据。例如：" data-en="Each name corresponds to an independent .json file for storing different types of data. For example:">每个 name 对应一个独立的 .json 文件，用于存储不同类型的数据。例如：</span></p>
+                        <ul>
+                            <li><code>config.json</code> - <span data-zh="应用配置" data-en="Application configuration">应用配置</span></li>
+                            <li><code>user.json</code> - <span data-zh="用户数据" data-en="User data">用户数据</span></li>
+                            <li><code>cache.json</code> - <span data-zh="缓存数据" data-en="Cache data">缓存数据</span></li>
+                        </ul>
+                    </section>
+
+                    <!-- db -->
+                    <section id="db" class="doc-section">
+                        <h2>db</h2>
+                        <p data-zh="canbox 使用 pouchdb 作为本地存储库" data-en="canbox uses pouchdb as local storage library">canbox 使用 <a href="https://pouchdb.com/" target="_blank">pouchdb</a> 作为本地存储库</p>
+                        <p><a href="https://www.w3ccoo.com/pouchdb/" target="_blank" data-zh="pouchdb 中文教程：PouchDB 教程" data-en="PouchDB Chinese Tutorial">pouchdb 中文教程：PouchDB 教程</a></p>
+                        <p data-zh="Canbox 为每个 APP 生成单独的 pouchdb 存储" data-en="Canbox generates a separate pouchdb storage for each app">Canbox 为每个 APP 生成单独的 pouchdb 存储</p>
+
+                        <h3>canbox.db.put(doc)</h3>
+                        <p data-zh="新增/修改数据文档" data-en="Add/Update data document">新增/修改数据文档</p>
+                        <p><strong data-zh="注意" data-en="Note">注意</strong>：<span data-zh="创建文档时，如果没有 _id，canbox 会生成一个 _id 最后在应答内容中返回给 app" data-en="When creating a document, if there is no _id, canbox will generate an _id and return it in the response">创建文档时，如果没有 _id，canbox 会生成一个 _id 最后在应答内容中返回给 app</span></p>
+                        <p data-zh="想要修改文档，参数 _rev 是必须的" data-en="To modify a document, the _rev parameter is required">想要修改文档，参数 _rev 使必须的</p>
+                        <ul>
+                            <li><strong data-zh="参数" data-en="Parameters">参数</strong> object</li>
+                            <li><strong data-zh="应答" data-en="Response">应答</strong> object</li>
+                        </ul>
+
+                        <h3>canbox.db.bulkDocs(docs)</h3>
+                        <p data-zh="批量操作文档，支持新增、修改和删除。" data-en="Batch operation on documents, supports add, update and delete.">批量操作文档，支持新增、修改和删除。</p>
+                        <ul>
+                            <li><strong data-zh="参数" data-en="Parameters">参数</strong> <code>array</code> docs - <span data-zh="文档数组" data-en="Document array">文档数组</span></li>
+                            <li><strong data-zh="应答" data-en="Response">应答</strong> <code>array</code> - <span data-zh="每个文档的操作结果" data-en="Operation result for each document">每个文档的操作结果</span></li>
+                        </ul>
+
+                        <p><strong data-zh="功能说明" data-en="Function Description">功能说明</strong>：</p>
+                        <ul>
+                            <li><strong data-zh="新增文档" data-en="Add Document">新增文档</strong>：<span data-zh="当文档没有 _id 或没有 _rev 时，canbox 会自动生成 _id 并插入新文档" data-en="When the document has no _id or _rev, canbox will automatically generate _id and insert a new document">当文档没有 _id 或没有 _rev 时，canbox 会自动生成 _id 并插入新文档</span></li>
+                            <li><strong data-zh="修改文档" data-en="Update Document">修改文档</strong>：<span data-zh="当文档包含 _id 和 _rev 时，会更新现有文档" data-en="When the document contains _id and _rev, it will update the existing document">当文档包含 _id 和 _rev 时，会更新现有文档</span></li>
+                            <li><strong data-zh="删除文档" data-en="Delete Document">删除文档</strong>：<span data-zh="当文档包含 _deleted: true 参数时，会删除该文档（需要提供 _id 和 _rev）" data-en="When the document contains _deleted: true parameter, it will delete the document (requires _id and _rev)">当文档包含 _deleted: true 参数时，会删除该文档（需要提供 _id 和 _rev）</span></li>
+                        </ul>
+
+                        <p><strong data-zh="注意" data-en="Note">注意</strong>：<span data-zh="canbox 会自动为新文档生成 createTime，为更新文档生成 updateTime。" data-en="canbox will automatically generate createTime for new documents and updateTime for updated documents.">canbox 会自动为新文档生成 createTime，为更新文档生成 updateTime。</span></p>
+
+                        <h3>canbox.db.get(query)</h3>
+                        <ul>
+                            <li><strong data-zh="参数" data-en="Parameters">参数</strong> object</li>
+                            <li><strong data-zh="应答" data-en="Response">应答</strong> object</li>
+                        </ul>
+
+                        <h3>canbox.db.allDocs(options)</h3>
+                        <p data-zh="获取数据库中的所有文档。" data-en="Get all documents in the database.">获取数据库中的所有文档。</p>
+                        <ul>
+                            <li><strong data-zh="参数" data-en="Parameters">参数</strong> <code>object</code> options - <span data-zh="查询选项" data-en="Query options">查询选项</span></li>
+                            <li><strong data-zh="应答" data-en="Response">应答</strong> <code>object</code> - <span data-zh="包含 total_rows、offset、rows 的结果对象" data-en="Result object containing total_rows, offset, rows">包含 total_rows、offset、rows 的结果对象</span></li>
+                        </ul>
+
+                        <p><strong data-zh="参数说明" data-en="Parameter Description">参数说明</strong>：</p>
+                        <ul>
+                            <li><code>include_docs</code> - <span data-zh="是否返回完整文档内容（默认 false）" data-en="Whether to return complete document content (default false)">是否返回完整文档内容（默认 false）</span></li>
+                            <li><code>limit</code> - <span data-zh="限制返回的文档数量" data-en="Limit the number of returned documents">限制返回的文档数量</span></li>
+                            <li><code>descending</code> - <span data-zh="是否倒序排列" data-en="Whether to sort in descending order">是否倒序排列</span></li>
+                            <li><code>startkey</code> - <span data-zh="开始的文档 ID" data-en="Start document ID">开始的文档 ID</span></li>
+                            <li><code>endkey</code> - <span data-zh="结束的文档 ID" data-en="End document ID">结束的文档 ID</span></li>
+                            <li><code>skip</code> - <span data-zh="跳过的文档数量" data-en="Number of documents to skip">跳过的文档数量</span></li>
+                        </ul>
+
+                        <p><strong data-zh="注意" data-en="Note">注意</strong>：<span data-zh="allDocs 会返回数据库中的所有文档，适合用于数据遍历、统计等场景。如果只需要特定条件的文档，建议使用 find() 方法。" data-en="allDocs will return all documents in the database, suitable for data traversal, statistics and other scenarios. If you only need documents with specific conditions, it is recommended to use the find() method.">allDocs 会返回数据库中的所有文档，适合用于数据遍历、统计等场景。如果只需要特定条件的文档，建议使用 find() 方法。</span></p>
+
+                        <h3>canbox.db.remove(doc)</h3>
+                        <ul>
+                            <li><strong data-zh="参数" data-en="Parameters">参数</strong> object <span data-zh="需要包含 _id 和 _rev" data-en="Must include _id and _rev">需要包含 _id 和 _rev</span></li>
+                            <li><strong data-zh="应答" data-en="Response">应答</strong> object</li>
+                        </ul>
+
+                        <h3>canbox.db.find(query)</h3>
+                        <p data-zh="使用 Mango 查询语法查询文档。" data-en="Use Mango query syntax to query documents.">使用 Mango 查询语法查询文档。</p>
+                        <ul>
+                            <li><strong data-zh="参数" data-en="Parameters">参数</strong> <code>object</code> query - <span data-zh="查询条件对象，支持 Mango 查询语法" data-en="Query condition object, supports Mango query syntax">查询条件对象，支持 Mango 查询语法</span></li>
+                            <li><strong data-zh="应答" data-en="Response">应答</strong> <code>object</code> - <span data-zh="包含 docs 数组的查询结果" data-en="Query result containing docs array">包含 docs 数组的查询结果</span></li>
+                        </ul>
+
+                        <p><strong data-zh="注意" data-en="Note">注意</strong>：<span data-zh="find 方法使用 PouchDB 的 Mango 查询语法，支持复杂的查询条件、排序、分页等功能。" data-en="The find method uses PouchDB's Mango query syntax, supporting complex query conditions, sorting, pagination, etc.">find 方法使用 PouchDB 的 Mango 查询语法，支持复杂的查询条件、排序、分页等功能。</span></p>
+
+                        <h3>canbox.db.createIndex(index)</h3>
+                        <p data-zh="创建索引以提升查询性能。" data-en="Create index to improve query performance.">创建索引以提升查询性能。</p>
+                        <ul>
+                            <li><strong data-zh="参数" data-en="Parameters">参数</strong> <code>object</code> index - <span data-zh="索引配置对象" data-en="Index configuration object">索引配置对象</span></li>
+                            <li><strong data-zh="应答" data-en="Response">应答</strong> <code>object</code> - <span data-zh="索引创建结果" data-en="Index creation result">索引创建结果</span></li>
+                        </ul>
+
+                        <p><strong data-zh="性能提示" data-en="Performance Tips">性能提示</strong>：</p>
+                        <ul>
+                            <li><span data-zh="创建索引可以显著提升 find 查询性能" data-en="Creating indexes can significantly improve find query performance">创建索引可以显著提升 find 查询性能</span></li>
+                            <li><span data-zh="建议在应用初始化时创建常用的索引" data-en="It is recommended to create commonly used indexes when the application initializes">建议在应用初始化时创建常用的索引</span></li>
+                            <li><span data-zh="索引创建是异步操作，建议在应用启动时完成" data-en="Index creation is an asynchronous operation, it is recommended to complete it when the application starts">索引创建是异步操作，建议在应用启动时完成</span></li>
+                        </ul>
+                    </section>
+
+                    <!-- window -->
+                    <section id="window" class="doc-section">
+                        <h2>window</h2>
+                        <h3>canbox.win.createWindow(options, params)</h3>
+                        <ul>
+                            <li><strong data-zh="参数" data-en="Parameters">参数</strong>
+                                <ol>
+                                    <li>options: <code>object</code> <span data-zh="参考 electron：BaseWindowsConstructorOptions" data-en="Reference electron: BaseWindowsConstructorOptions">参考 electron：BaseWindowsConstructorOptions</span></li>
+                                    <li>params: <code>object</code>: <code>{url: '', title: '', devTools: true}</code>
+                                        <ul>
+                                            <li><code>url</code>: <span data-zh="窗口加载页面相对路径，或路由路径" data-en="Window load page relative path, or route path">窗口加载页面相对路径，或路由路径</span></li>
+                                            <li><code>title</code>: <span data-zh="窗口标题" data-en="Window title">窗口标题</span></li>
+                                            <li><code>devTools</code>: <span data-zh="是否开启 devTools，默认 false" data-en="Whether to enable devTools, default false">是否开启devTools，默认 false</span></li>
+                                            <li><code>ecsClose</code>: <span data-zh="点击 ecs 关闭窗口，默认 false" data-en="Click ecs to close window, default false">点击 ecs 关闭窗口，默认 false</span></li>
+                                        </ul>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li><strong data-zh="应答" data-en="Response">应答</strong>：<span data-zh="窗口的 id 编码" data-en="Window id encoding">窗口的id编码</span></li>
+                        </ul>
+
+                        <h3>canbox.win.notification(options)</h3>
+                        <ul>
+                            <li><strong data-zh="参数" data-en="Parameters">参数</strong> - <code>options</code>: <span data-zh="参考 electron：Notification" data-en="Reference electron: Notification">参考electron：Notification</span></li>
+                            <li><strong data-zh="应答" data-en="Response">应答</strong></li>
+                        </ul>
+                    </section>
+
+                    <!-- sudo -->
+                    <section id="sudo" class="doc-section">
+                        <h2>sudo</h2>
+                        <p data-zh="提供跨平台的提权执行命令功能，支持 Linux、macOS 和 Windows。" data-en="Provides cross-platform privilege escalation command execution, supporting Linux, macOS, and Windows.">提供跨平台的提权执行命令功能，支持 Linux、macOS 和 Windows。</p>
+
+                        <h3>canbox.sudo.exec(options)</h3>
+                        <p data-zh="执行需要提权的命令。" data-en="Execute commands that require privilege escalation.">执行需要提权的命令。</p>
+                        <ul>
+                            <li><strong data-zh="参数" data-en="Parameters">参数</strong> <code>object</code> options - <span data-zh="提权选项" data-en="Privilege escalation options">提权选项</span></li>
+                            <li><strong data-zh="应答" data-en="Response">应答</strong> <code>object</code> - <span data-zh="包含 stdout 和 stderr 的执行结果" data-en="Execution result containing stdout and stderr">包含 stdout 和 stderr 的执行结果</span></li>
+                        </ul>
+
+                        <p><strong data-zh="参数说明" data-en="Parameter Description">参数说明</strong>：</p>
+                        <ul>
+                            <li><code>command</code> - <span data-zh="要执行的命令（必填）" data-en="Command to execute (required)">要执行的命令（必填）</span></li>
+                            <li><code>name</code> - <span data-zh="操作名称，用于向用户提示为何需要提权（必填）" data-en="Operation name, used to prompt the user why privilege escalation is needed (required)">操作名称，用于向用户提示为何需要提权（必填）</span></li>
+                        </ul>
+
+                        <p><strong data-zh="name 参数要求" data-en="name Parameter Requirements">name 参数要求</strong>：</p>
+                        <ul>
+                            <li><span data-zh="只能包含字母、数字和空格（不支持中文等非 ASCII 字符）" data-en="Can only contain letters, numbers, and spaces (does not support non-ASCII characters such as Chinese)">只能包含字母、数字和空格（不支持中文等非 ASCII 字符）</span></li>
+                            <li><span data-zh="长度不超过 70 个字符" data-en="Length does not exceed 70 characters">长度不超过 70 个字符</span></li>
+                            <li><span data-zh="建议使用英文描述，例如：'Apply Hosts Config'、'Restart Service'" data-en="It is recommended to use English description, for example: 'Apply Hosts Config', 'Restart Service'">建议使用英文描述，例如：'Apply Hosts Config'、'Restart Service'</span></li>
+                        </ul>
+
+                        <p><strong data-zh="平台说明" data-en="Platform Description">平台说明</strong>：</p>
+                        <ul>
+                            <li><strong>Linux/macOS</strong> - <span data-zh="使用 sudo-prompt，会弹出系统提权对话框" data-en="Uses sudo-prompt, will pop up a system privilege escalation dialog">使用 sudo-prompt，会弹出系统提权对话框</span></li>
+                            <li><strong>Windows</strong> - <span data-zh="使用 electron-sudo，会弹出 UAC 提权对话框" data-en="Uses electron-sudo, will pop up a UAC privilege escalation dialog">使用 electron-sudo，会弹出 UAC 提权对话框</span></li>
+                        </ul>
+
+                        <p><strong data-zh="注意" data-en="Note">注意</strong>：<span data-zh="提权操作涉及系统安全，请谨慎使用。确保只执行必要的命令，并在 name 参数中清晰说明操作目的。" data-en="Privilege escalation involves system security, please use with caution. Ensure that only necessary commands are executed, and clearly explain the purpose of the operation in the name parameter.">提权操作涉及系统安全，请谨慎使用。确保只执行必要的命令，并在 name 参数中清晰说明操作目的。</span></p>
+                    </section>
+
+                    <!-- dialog -->
+                    <section id="dialog" class="doc-section">
+                        <h2>dialog</h2>
+                        <p data-zh="直接的封装，没有做任何修剪，请求参数和应答均可参见 electron 的 dialog 模块" data-en="Direct encapsulation without any pruning, request parameters and responses can refer to electron's dialog module">直接的封装，没有做任何修建，请求参数和应答均可参见electron的 <a href="https://www.electronjs.org/zh/docs/latest/api/dialog" target="_blank">dialog</a> 模块</p>
+
+                        <h3>showOpenDialog</h3>
+                        <p data-zh="文件选择框" data-en="File selection dialog">文件选择框</p>
+                        <p data-zh="与 Electron showOpenDialog 一致" data-en="Consistent with Electron showOpenDialog">与 Electron showOpenDialog 一致</p>
+
+                        <h3>showSaveDialog</h3>
+                        <p data-zh="文件保存框" data-en="File save dialog">文件保存框</p>
+                        <p data-zh="与 Electron showSaveDialog 一致" data-en="Consistent with Electron showSaveDialog">与 Electron showSaveDialog 一致</p>
+
+                        <h3>showMessageBox</h3>
+                        <p data-zh="消息框" data-en="Message box">消息框</p>
+                        <p data-zh="与 Electron showMessageBox 一致" data-en="Consistent with Electron showMessageBox">与 Electron showMessageBox 一致</p>
+                    </section>
+
+                    <!-- 生命周期 -->
+                    <section id="lifecycle" class="doc-section">
+                        <h2 data-zh="生命周期" data-en="Lifecycle">生命周期</h2>
+                        <h3>registerCloseCallback</h3>
+                        <p data-zh="注册窗口关闭时 APP 的回调函数" data-en="Register the callback function of the APP when the window is closed">注册窗口关闭时APP的回调函数</p>
+                        <ul>
+                            <li><strong data-zh="参数" data-en="Parameters">参数</strong>: <code>Function</code></li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/scripts/docs.js"></script>
+</body>
+</html>
