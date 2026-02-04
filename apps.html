@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-zh="APP 中心 - Canbox" data-en="App Center - Canbox">APP 中心 - Canbox</title>
+    <link rel="icon" type="image/png" href="/images/logo_128x128.png">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/apps.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="/" class="logo">
+                <img src="/images/logo.png" alt="Canbox Logo" class="logo-img">
+                <span class="logo-text">Canbox</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/#features" data-zh="功能特性" data-en="Features">功能特性</a></li>
+                <li><a href="/#usage" data-zh="使用指南" data-en="Usage">使用指南</a></li>
+                <li><a href="/apps.html" class="active" data-zh="APP 中心" data-en="App Center">APP 中心</a></li>
+                <li><a href="/#development" data-zh="开发文档" data-en="Docs">开发文档</a></li>
+                <li><a href="/#download" data-zh="下载" data-en="Download">下载</a></li>
+            </ul>
+            <div class="lang-switch">
+                <a href="#en">EN</a> / <a href="#zh" class="active">中</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主内容 -->
+    <main class="apps-main">
+        <div class="container">
+            <div class="apps-header">
+                <h1 data-zh="APP 中心" data-en="App Center">APP 中心</h1>
+                <p data-zh="这里登记了所有基于 Canbox 开发的应用" data-en="All apps developed based on Canbox are registered here">这里登记了所有基于 Canbox 开发的应用</p>
+            </div>
+
+            <!-- APP 列表 -->
+            <div class="apps-grid" id="appsGrid">
+                <!-- Apps will be loaded dynamically -->
+            </div>
+
+            <!-- 提交说明 - 折叠面板 -->
+            <div class="submit-section">
+                <button class="submit-toggle" id="submitToggle">
+                    <span data-zh="如何登记你的应用" data-en="How to Submit Your App">如何登记你的应用</span>
+                    <span class="toggle-icon">▼</span>
+                </button>
+                <div class="submit-content" id="submitContent">
+                    <ol class="submit-steps">
+                    <li>
+                        <strong data-zh="准备应用信息" data-en="Prepare app info">准备应用信息</strong>
+                        <p data-zh="确保你的应用已经开发完成并上传到 GitHub 或 Gitee。" data-en="Ensure your app is developed and uploaded to GitHub or Gitee.">确保你的应用已经开发完成并上传到 GitHub 或 Gitee。</p>
+                    </li>
+                    <li>
+                        <strong data-zh="编辑数据文件" data-en="Edit data file">编辑数据文件</strong>
+                        <p data-zh="在 <code>data/apps-authors/</code> 目录下创建新文件 <code>apps-你的用户名.js</code>（如 apps-alice.js）。文件内容如下：" data-en="Create a new file <code>apps-yourusername.js</code> (e.g. apps-alice.js) in <code>data/apps-authors/</code> directory. File content:">在 <code>data/apps-authors/</code> 目录下创建新文件 <code>apps-你的用户名.js</code>（如 apps-alice.js）。文件内容如下：</p>
+                        <pre><code>// 作者：你的用户名
+const yourapp = {
+    name: '应用名称',
+    id: 'com.github.username.appname',
+    description: '应用描述',
+    description_en: 'App description in English',
+    author: '你的用户名',
+    category: 'development',
+    tags: ['tag1', 'tag2'],
+    repo: 'https://github.com/username/repo',
+    logo: 'https://github.com/username/repo/raw/master/logo.png',
+    license: 'MIT',
+    version: '0.0.1',
+    downloads: '10+',
+    homepage: 'https://github.com/username/repo'
+};
+
+// 可以继续添加更多应用...
+const yourapp2 = {
+    // ... 另一个应用
+};
+
+export default [yourapp, yourapp2];</code></pre>
+                    </li>
+                    <li>
+                        <strong data-zh="更新总索引" data-en="Update index">更新总索引</strong>
+                        <p data-zh="在 <code>data/apps.js</code> 文件中添加 import 和数组元素：" data-en="Add import and array element in <code>data/apps.js</code> file:">在 <code>data/apps.js</code> 文件中添加 import 和数组元素：</p>
+                        <pre><code>// 在文件顶部添加 import
+import appsYourusername from './apps-authors/apps-yourusername.js';
+
+// 在 apps 数组中添加
+const apps = [
+    ...appsLizl6,
+    ...appsRexlevin,
+    ...appsYourusername  // 新增这一行
+];</code></pre>
+                    </li>
+                    <li>
+                        <strong data-zh="提交 PR" data-en="Submit PR">提交 PR</strong>
+                        <p data-zh="将修改推送到你的 fork，然后提交 Pull Request 到原仓库。" data-en="Push the changes to your fork, then submit a Pull Request to the original repository.">将修改推送到你的 fork，然后提交 Pull Request 到原仓库。</p>
+                    </li>
+                </ol>
+
+                <div class="tips">
+                    <h3 data-zh="注意事项" data-en="Notes">注意事项</h3>
+                    <ul>
+                        <li data-zh="请确保 logo 图片可以直接访问" data-en="Please ensure logo image is directly accessible">请确保 logo 图片可以直接访问</li>
+                        <li data-zh="description 和 description_en 都需要填写" data-en="Both description and description_en are required">description 和 description_en 都需要填写</li>
+                        <li data-zh="category 必须是以下之一：development, utility, office, network, audio, video, game, graphics, education" data-en="category must be one of: development, utility, office, network, audio, video, game, graphics, education">category 必须是以下之一：development, utility, office, network, audio, video, game, graphics, education</li>
+                        <li data-zh="version 使用语义化版本号，如 1.0.0" data-en="Use semantic versioning for version, e.g. 1.0.0">version 使用语义化版本号，如 1.0.0</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Canbox</h4>
+                    <p data-zh="轻量级应用运行时平台" data-en="Lightweight Application Runtime Platform">轻量级应用运行时平台</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="链接" data-en="Links">链接</h4>
+                    <ul>
+                        <li><a href="https://github.com/lizl6/canbox" target="_blank">GitHub</a></li>
+                        <li><a href="https://gitee.com/lizl6/canbox" target="_blank">Gitee</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="许可证" data-en="License">许可证</h4>
+                    <p>Apache 2.0</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-zh="© 2026 Canbox. All rights reserved." data-en="© 2026 Canbox. All rights reserved.">&copy; 2026 Canbox. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/scripts/apps-main.js"></script>
+</body>
+</html>

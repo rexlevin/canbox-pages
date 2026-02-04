@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-zh="APP 开发文档 - Canbox" data-en="App Development Docs - Canbox">APP 开发文档 - Canbox</title>
+    <link rel="icon" type="image/png" href="/images/logo_128x128.png">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/docs.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="/" class="logo">
+                <img src="/images/logo.png" alt="Canbox Logo" class="logo-img">
+                <span class="logo-text">Canbox</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/#features" data-zh="功能特性" data-en="Features">功能特性</a></li>
+                <li><a href="/#usage" data-zh="使用指南" data-en="Usage">使用指南</a></li>
+                <li><a href="/#development" data-zh="开发文档" data-en="Docs">开发文档</a></li>
+                <li><a href="/#download" data-zh="下载" data-en="Download">下载</a></li>
+            </ul>
+            <div class="lang-switch">
+                <a href="#en">EN</a> / <a href="#zh" class="active">中</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 文档内容 -->
+    <main class="docs-main">
+        <div class="container">
+            <div class="docs-layout">
+                <!-- 侧边栏 -->
+                <aside class="docs-sidebar">
+                    <nav class="docs-nav">
+                        <h3 data-zh="目录" data-en="Table of Contents">目录</h3>
+                        <ul>
+                            <li><a href="#files" data-zh="文件说明" data-en="File Description">文件说明</a></li>
+                            <li><a href="#canbox-api" data-zh="Canbox API 提示" data-en="Canbox API Tips">Canbox API 提示</a></li>
+                            <li><a href="#app-json">app.json</a></li>
+                            <li><a href="#uat-dev-json">uat.dev.json</a></li>
+                            <li><a href="#preload-js">preload.js</a></li>
+                            <li><a href="#cb-build-json">cb.build.json</a></li>
+                            <li><a href="#readme-md">README.md</a></li>
+                            <li><a href="#history-md">HISTORY.md</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+
+                <!-- 文档主体 -->
+                <div class="docs-content">
+                    <h1 data-zh="APP 开发文档" data-en="App Development Documentation">APP 开发文档</h1>
+
+                    <!-- 文件说明 -->
+                    <section id="files" class="doc-section">
+                        <h2 data-zh="文件说明" data-en="File Description">文件说明</h2>
+                        <ul>
+                            <li><code>app.json</code>: <span data-zh="APP 描述文件，包含 APP 启动的窗口参数" data-en="APP description file, contains APP launch window parameters">APP描述文件，包含 APP 启动的窗口参数</span></li>
+                            <li><code>uat.dev.json</code>: <span data-zh="开发环境配置，开发时的启动 URL、打开开发工具" data-en="Development environment configuration, development startup URL, open developer tools">开发环境配置，开发时的启动URL、打开开发工具</span></li>
+                            <li><code>README.md</code>: <span data-zh="APP 说明，这个文件内容会作为 APP 信息在 canbox 展示" data-en="APP description, the content of this file will be displayed as APP information in canbox">APP 说明，这个文件内容会作为 APP 信息在 canbox 展示</span></li>
+                            <li><code>HISTORY.md</code>: <span data-zh="APP 版本历史，这个文件内容会作为 APP 信息在 canbox 展示" data-en="APP version history, the content of this file will be displayed as APP information in canbox">APP 版本历史，这个文件内容会作为 APP 信息在 canbox 展示</span></li>
+                            <li><code>cb.build.json</code>: <span data-zh="APP 打包配置，指明打包包含的目录、文件，以及打包结果输出目录" data-en="APP packaging configuration, specifies directories and files to be packaged, and packaging output directory">APP 打包配置，指名打包包含的目录、文件，已经打包结果输出目录</span></li>
+                        </ul>
+                    </section>
+
+                    <!-- Canbox API 提示 -->
+                    <section id="canbox-api" class="doc-section">
+                        <h2 data-zh="Canbox API 提示" data-en="Canbox API Tips">CanBox API提示</h2>
+                        <ol>
+                            <li data-zh="安装 typescript：npm i -D typescript" data-en="Install typescript: npm i -D typescript">安装 <code>typescript</code> ： <code>npm i -D typescript</code></li>
+                            <li data-zh="在项目根目录下创建目录 types，将 canbox.d.ts 放到 types 目录中" data-en="Create a types directory in the project root, and put canbox.d.ts into the types directory">在项目根目录下创建目录  <code>types</code>，将 <code>canbox.d.ts</code> 放到 <code>types</code> 目录中</li>
+                            <li data-zh="在项目根目录下创建 tsconfig.json 或 jsconfig.json 文件" data-en="Create tsconfig.json or jsconfig.json file in the project root">在项目根目录下创建 <code>tsconfig.json</code> 或 <code>jsconfig.json</code> 文件</li>
+                        </ol>
+
+                        <h3>tsconfig.json</h3>
+                        <pre><code>{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "typeRoots": ["./types", "./node_modules/@types"]
+    },
+    "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
+    "exclude": ["node_modules"]
+}</code></pre>
+
+                        <h3 data-zh="使用 JavaScript 的项目配置" data-en="JavaScript Project Configuration">使用 JavaScript 的项目配置</h3>
+                        <pre><code>{
+    "compilerOptions": {
+        "allowJs": true,
+        "checkJs": false,
+        "noEmit": true,
+        "strict": false,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "maxNodeModuleJsDepth": 0,
+        "target": "es6",
+        "module": "commonjs",
+        "forceConsistentCasingInFileNames": true,
+        "typeRoots": ["./types", "./node_modules/@types"]
+    },
+    "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
+    "exclude": ["node_modules"]
+}</code></pre>
+
+                        <h3>jsconfig.json</h3>
+                        <pre><code>{
+    "compilerOptions": {
+        "checkJs": false,
+        "strict": false,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "maxNodeModuleJsDepth": 0,
+        "target": "es6",
+        "module": "commonjs",
+        "forceConsistentCasingInFileNames": true,
+        "typeRoots": ["./types", "./node_modules/@types"]
+    },
+    "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
+    "exclude": ["node_modules"]
+}</code></pre>
+                    </section>
+
+                    <!-- app.json -->
+                    <section id="app-json" class="doc-section">
+                        <h2>app.json</h2>
+                        <pre><code>{
+    "name": "剪贴板",
+    "id": "com.github.dev001.clipboard",
+    "description": "一个好用的剪贴板",
+    "author": "dev001",
+    "repo": "https://github.com/dev001/clipboard",
+    "homepage": "https://dev001.github.io",
+    "main": "index.html",
+    "logo": "logo.png",
+    "version": "0.0.6",
+    "window": {
+        "minWidth": 800,
+        "minHeight": 400,
+        "width": 900,
+        "height": 500,
+        "icon": "logo.png",
+        "resizable": false,
+        "webPreferences": {
+            "preload": "preload.js"
+        }
+    },
+    "platform": ["windows", "darwin", "linux"],
+    "categories": ["development", "utility"],
+    "tags": ["json", "jsonformatter"]
+}</code></pre>
+
+                        <h3 data-zh="字段说明" data-en="Field Description">字段说明</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th data-zh="字段" data-en="Field">字段</th>
+                                    <th data-zh="父节点" data-en="Parent Node">父节点</th>
+                                    <th data-zh="类型" data-en="Type">类型</th>
+                                    <th data-zh="约束" data-en="Constraint">约束</th>
+                                    <th data-zh="说明" data-en="Description">说明</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td></td>
+                                    <td>string</td>
+                                    <td>1</td>
+                                    <td data-zh="app 应用标识<br>1. 多段组成，如：com.gitee.dev001.clipboard<br>2. 每段都由小写字母和数字组成，且小写字母开头<br>3. 仅最后一段可以使用 - 符号" data-en="app identifier<br>1. Multiple segments, e.g., com.gitee.dev001.clipboard<br>2. Each segment consists of lowercase letters and numbers, starting with lowercase letters<br>3. Only the last segment can use the - symbol">app应用标识<br>1. 多段组成，如：com.gitee.dev001.clipboard<br>2. 每段都由小写字母和数字组成，且小写字母开头<br>3. 仅最后一段可以使用 - 符号</td>
+                                </tr>
+                                <tr>
+                                    <td>window</td>
+                                    <td></td>
+                                    <td>object</td>
+                                    <td>1</td>
+                                    <td data-zh="同 Electron 中 BrowserWindow 参数" data-en="Same as BrowserWindow parameters in Electron">同 Electron 中 BrowserWindow 参数</td>
+                                </tr>
+                                <tr>
+                                    <td>platform</td>
+                                    <td></td>
+                                    <td>array</td>
+                                    <td>*</td>
+                                    <td>windows, darwin, linux<br><span data-zh="插件应用支持的平台，此为可选项，当前是默认为全平台支持" data-en="Platforms supported by the plugin app, this is optional, currently defaults to full platform support">插件应用支持的平台，此为 `可选项`，**当前是默认为全平台支持**</span></td>
+                                </tr>
+                                <tr>
+                                    <td>categories</td>
+                                    <td></td>
+                                    <td>array</td>
+                                    <td>*</td>
+                                    <td data-zh="app 分类，最多只取前两个" data-en="app category, at most the first two are taken">app分类，最多只取前两个</td>
+                                </tr>
+                                <tr>
+                                    <td>tags</td>
+                                    <td></td>
+                                    <td>array</td>
+                                    <td>*</td>
+                                    <td data-zh="app 标签，用于分类展示" data-en="app tags, used for classification display">app标签，用于分类展示</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3 data-zh="categories" data-en="Categories">categories</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>key</th>
+                                    <th data-zh="说明" data-en="Description">说明</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>education</td><td data-zh="教育 app" data-en="Education app">教育app</td></tr>
+                                <tr><td>office</td><td data-zh="办公" data-en="Office">办公</td></tr>
+                                <tr><td>audio</td><td data-zh="音频 app" data-en="Audio app">音频app</td></tr>
+                                <tr><td>video</td><td data-zh="视频 app" data-en="Video app">视频app</td></tr>
+                                <tr><td>game</td><td data-zh="游戏 app" data-en="Game app">游戏app</td></tr>
+                                <tr><td>utility</td><td data-zh="工具" data-en="Utility">工具</td></tr>
+                                <tr><td>development</td><td data-zh="开发者工具 app" data-en="Developer tools app">开发者工具app</td></tr>
+                                <tr><td>graphics</td><td data-zh="图形应用 app" data-en="Graphics app">图形应用app</td></tr>
+                                <tr><td>network</td><td data-zh="网络应用程序" data-en="Network application">网络应用程序</td></tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <!-- uat.dev.json -->
+                    <section id="uat-dev-json" class="doc-section">
+                        <h2>uat.dev.json</h2>
+                        <p data-zh="开发配置" data-en="Development configuration">开发配置</p>
+                        <pre><code>{
+    "main": "http://localhost:5173/",
+    "devTools": "detach"
+}</code></pre>
+
+                        <h3 data-zh="字段说明" data-en="Field Description">字段说明</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th data-zh="字段" data-en="Field">字段</th>
+                                    <th data-zh="父节点" data-en="Parent Node">父节点</th>
+                                    <th data-zh="类型" data-en="Type">类型</th>
+                                    <th data-zh="约束" data-en="Constraint">约束</th>
+                                    <th data-zh="说明" data-en="Description">说明</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>main</td>
+                                    <td>development</td>
+                                    <td>string</td>
+                                    <td>?</td>
+                                    <td data-zh="开发环境下 development.main 配置会覆盖 main" data-en="In development environment, development.main configuration will override main">开发环境下 `development.main` 配置会覆盖 `main`</td>
+                                </tr>
+                                <tr>
+                                    <td>devTools</td>
+                                    <td>development</td>
+                                    <td>string</td>
+                                    <td>?</td>
+                                    <td data-zh="打开开发者工具，left, right, bottom, undocked, detach" data-en="Open developer tools, left, right, bottom, undocked, detach">打开开发者工具，left, right, bottom, undocked, detach</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <!-- preload.js -->
+                    <section id="preload-js" class="doc-section">
+                        <h2>preload.js</h2>
+                        <p data-zh="canbox 开启了上下文隔离，想要使用 canbox 提供的 api，需要在 app.json 中配置预加载脚本：" data-en="canbox has enabled context isolation. To use the api provided by canbox, you need to configure the preload script in app.json:">canbox开启了上下文隔离，想要使用canbox提供的api，需要在 app.json 中配置预加载脚本：</p>
+                        <pre><code>"window": {
+    "webPreferences": {
+        "preload": "preload.js"
+    }
+}</code></pre>
+
+                        <p data-zh="在预加载脚本中使用 canbox 的 api：" data-en="Use canbox's api in the preload script:">在预加载脚本中使用canbox的api：</p>
+                        <pre><code># preload.js
+canbox.hello();  # hello, hope you have a nice day</code></pre>
+
+                        <p data-zh="preload 遵循 CommonJS 规范，可以使用 require 来引入 nodejs 模块：" data-en="preload follows CommonJS specification, you can use require to import nodejs modules:">preload遵循 `CommonJS` 规范，可以使用 `require` 来引入 nodejs 模块：</p>
+                    </section>
+
+                    <!-- cb.build.json -->
+                    <section id="cb-build-json" class="doc-section">
+                        <h2>cb.build.json</h2>
+                        <p data-zh="canbox 使用 asar 进行打包，打包依据 cb.build.json 内容进行：" data-en="canbox uses asar for packaging, packaging is performed according to cb.build.json content:">canbox使用asar进行打包，打包依据 cb.build.json 内容进行：</p>
+                        <pre><code>{
+    "files": [
+        "build/**/*",
+        "preload.js",
+        "logo.png",
+        "app.json",
+        "README.md"
+    ],
+    "outputDir": "./dist"
+}</code></pre>
+
+                        <h3 data-zh="字段说明" data-en="Field Description">字段说明</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th data-zh="字段" data-en="Field">字段</th>
+                                    <th data-zh="类型" data-en="Type">类型</th>
+                                    <th data-zh="说明" data-en="Description">说明</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>files</td>
+                                    <td>array</td>
+                                    <td data-zh="相对 cb.build.json 的所有文件列表" data-en="List of all files relative to cb.build.json">相对 cb.build.json 的所有文件列表</td>
+                                </tr>
+                                <tr>
+                                    <td>outputDir</td>
+                                    <td>string</td>
+                                    <td data-zh="相对 cb.build.json 的一个目录，打包过程中这个目录会有清空操作，所以不要放置其他需要的文件" data-en="A directory relative to cb.build.json, this directory will be cleared during the packaging process, so do not place other required files">相对 cb.build.json 的一个目录，打包过程中这个目录会有清空操作，所以不要放置其他需要的文件</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <!-- README.md -->
+                    <section id="readme-md" class="doc-section">
+                        <h2>README.md</h2>
+                        <p data-zh="和 app.json 同级的 README.md 文件将会被解析为 app 信息在 canbox 展示" data-en="The README.md file at the same level as app.json will be parsed as app information and displayed in canbox">和 app.json 同级的 README.md 文件将会被解析为 app 信息在 canbox 展示</p>
+                        <p><strong data-zh="注意" data-en="Note">注意</strong>：<span data-zh="图片地址使用网络 url 才能正确展示" data-en="Image URLs must use network URLs to display correctly">图片地址使用网络url才能正确展示</span></p>
+                    </section>
+
+                    <!-- HISTORY.md -->
+                    <section id="history-md" class="doc-section">
+                        <h2>HISTORY.md</h2>
+                        <p data-zh="非必须文件，可以在这里记录下你的 APP 的版本历史。" data-en="Optional file, you can record the version history of your APP here.">非必须文件，可以在这里记录下你的APP的版本历史。</p>
+                        <p data-zh="推荐倒叙记录。" data-en="Recommended to record in reverse chronological order.">推荐倒叙记录。</p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/scripts/docs.js"></script>
+</body>
+</html>
