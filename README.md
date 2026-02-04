@@ -19,68 +19,68 @@ Welcome to join and help improve this project:
 
 ## Tech Stack
 
-- 纯 HTML5 + CSS3 + JavaScript
-- 响应式设计，支持移动端
-- 无需构建工具，开箱即用
+- Pure HTML5 + CSS3 + JavaScript
+- Responsive design with mobile support
+- No build tools required, ready to use
 
-## 本地开发
+## Local Development
 
-1. 克隆仓库：
+1. Clone the repository:
 ```bash
-git clone https://github.com/lizl6/canbox-pages.git
+git clone https://github.com/rexlevin/canbox-pages.git
 cd canbox-pages
 ```
 
-2. 使用本地服务器预览（可选，推荐）：
+2. Use a local server to preview (optional, recommended):
 
-使用 Python：
+Using Python:
 ```bash
 python -m http.server 8000
 ```
 
-使用 Node.js：
+Using Node.js:
 ```bash
 npx serve
 ```
 
-3. 在浏览器中打开 http://localhost:8000
+3. Open http://localhost:8000 in your browser
 
-## 部署
+## Deployment
 
 ### GitHub Pages
 
-1. 推送到 GitHub 仓库
-2. 在仓库设置中启用 GitHub Pages
-3. 选择默认分支（main/master）
-4. 访问 https://yourusername.github.io/canbox-pages/
+1. Push to GitHub repository
+2. Enable GitHub Pages in repository settings
+3. Select default branch (main/master)
+4. Visit https://yourusername.github.io/canbox-pages/
 
 ### Gitee Pages
 
-1. 推送到 Gitee 仓库
-2. 在仓库设置中启用 Gitee Pages
-3. 选择默认分支并更新
-4. 访问 https://yourusername.gitee.io/canbox-pages/
+1. Push to Gitee repository
+2. Enable Gitee Pages in repository settings
+3. Select default branch and update
+4. Visit https://yourusername.gitee.io/canbox-pages/
 
-## 目录结构
+## Directory Structure
 
 ```
 canbox-pages/
-├── index.html          # 首页
-├── images/            # 图片资源
+├── index.html          # Homepage
+├── images/            # Image resources
 │   ├── logo.png
 │   └── logo_512x512.png
-├── styles/            # 样式文件
+├── styles/            # Style files
 │   └── main.css
-├── scripts/           # 脚本文件
+├── scripts/           # Script files
 │   └── main.js
 └── README.md
 ```
 
-## 自定义
+## Customization
 
-- 修改链接：在 `index.html` 中更新 GitHub/Gitee 链接
-- 修改样式：在 `styles/main.css` 中自定义颜色和布局
-- 添加图片：将图片放入 `images/` 目录
+- Update links: Modify GitHub/Gitee links in `index.html`
+- Modify styles: Customize colors and layout in `styles/main.css`
+- Add images: Place images in the `images/` directory
 
 ## 许可证
 
