@@ -4,7 +4,7 @@ Canbox 项目的 static website, hosted on GitHub Pages and Gitee Pages.
 
 ---
 
-## 🚧 Project Note
+## Project Note
 
 Both Canbox and Canbox Pages are created by a self-taught developer (learned frontend development independently). While the basic functionality is implemented, there is still room for improvement in many areas.
 
@@ -14,6 +14,17 @@ Welcome to join and help improve this project:
 - ✅ Enhance documentation content
 - ✅ Fix typos and errors
 - ✅ Submit your apps to the App Center
+
+## About Canbox
+
+Canbox is a lightweight application runtime platform that provides minimal core capabilities, allowing developers to focus on implementing their own application logic.
+
+**Key Features:**
+- **App Management**: Supports installation, uninstallation, and updates of applications
+- **App Import**: Supports importing offline application packages, suitable for scenarios where apps cannot be publicly shared (e.g., internal enterprise tools, proprietary algorithms, sensitive data processing)
+- **Serverless Architecture**: Share apps via GitHub, Gitee, or import packaged apps directly
+- **Shortcuts**: Create shortcuts for frequently used applications
+- **Multi-platform Support**: Based on Electron, supports Linux, Windows, and macOS
 
 ---
 
