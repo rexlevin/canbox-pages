@@ -41,7 +41,7 @@ const passgen = {
     category: 'utility',
     tags: ['password', 'generator', 'security'],
     repo: 'https://github.com/rexlevin/cb-passgen',
-    logo: 'https://github.com/rexlevin/cb-passgen/raw/master/logo.png',
+    logo: 'https://github.com/rexlevin/cb-passgen/raw/main/logo.png',
     license: 'MIT',
     version: '0.0.2',
     downloads: '50+',
