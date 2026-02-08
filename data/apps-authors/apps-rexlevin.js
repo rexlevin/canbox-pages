@@ -8,12 +8,12 @@ const jsonbox = {
     author: 'lizl6',
     category: 'development',
     tags: ['json', 'formatter', 'converter'],
-    repo: 'https://gitee.com/lizl6/cb-jsonbox',
-    logo: 'https://gitee.com/lizl6/cb-jsonbox/raw/master/logo.png',
-    license: 'MIT',
-    version: '0.0.2',
+    repo: 'https://github.com/rexlevin/cb-jsonbox',
+    logo: 'https://github.com/rexlevin/cb-jsonbox/blob/master/logo.png',
+    license: 'Apache 2.0',
+    version: '0.0.3',
     downloads: '100+',
-    homepage: 'https://gitee.com/lizl6/cb-jsonbox'
+    homepage: 'https://github.com/rexlevin/cb-jsonbox'
 };
 
 const hostsbox = {
@@ -27,7 +27,7 @@ const hostsbox = {
     repo: 'https://github.com/rexlevin/cb-hostsbox',
     logo: 'https://github.com/rexlevin/cb-hostsbox/raw/main/public/logo.png',
     license: 'MIT',
-    version: '0.0.1',
+    version: '1.0.0',
     downloads: '30+',
     homepage: 'https://github.com/rexlevin/cb-hostsbox'
 };
@@ -41,9 +41,9 @@ const passgen = {
     category: 'utility',
     tags: ['password', 'generator', 'security'],
     repo: 'https://github.com/rexlevin/cb-passgen',
-    logo: 'https://github.com/rexlevin/cb-passgen/raw/main/logo.png',
-    license: 'MIT',
-    version: '0.0.2',
+    logo: 'https://github.com/rexlevin/cb-passgen/blob/main/logo.png',
+    license: 'Apache 2.0',
+    version: '0.0.1',
     downloads: '50+',
     homepage: 'https://github.com/rexlevin/cb-passgen'
 };
