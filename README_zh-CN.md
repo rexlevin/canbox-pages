@@ -79,13 +79,27 @@ npx serve
 ```
 canbox-pages/
 ├── index.html          # 首页
+├── apps.html          # 应用中心
+├── docs.html          # 文档
+├── app-dev.html       # APP 开发指南
+├── canbox-dev.html   # Canbox 开发指南
+├── data/              # 数据文件
+│   ├── apps.js
+│   ├── categories.js
+│   └── apps-authors/  # APP 作者信息
 ├── images/            # 图片资源
 │   ├── logo.png
+│   ├── logo_128x128.png
+│   ├── logo_256x256.png
 │   └── logo_512x512.png
 ├── styles/            # 样式文件
-│   └── main.css
+│   ├── main.css
+│   ├── apps.css
+│   └── docs.css
 ├── scripts/           # 脚本文件
-│   └── main.js
+│   ├── main.js
+│   ├── apps-main.js
+│   └── docs.js
 └── README.md
 ```
 

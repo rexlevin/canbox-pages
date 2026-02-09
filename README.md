@@ -77,13 +77,27 @@ npx serve
 ```
 canbox-pages/
 ├── index.html          # Homepage
+├── apps.html          # App center
+├── docs.html          # Documentation
+├── app-dev.html       # App development guide
+├── canbox-dev.html   # Canbox development guide
+├── data/              # Data files
+│   ├── apps.js
+│   ├── categories.js
+│   └── apps-authors/  # App author information
 ├── images/            # Image resources
 │   ├── logo.png
+│   ├── logo_128x128.png
+│   ├── logo_256x256.png
 │   └── logo_512x512.png
 ├── styles/            # Style files
-│   └── main.css
+│   ├── main.css
+│   ├── apps.css
+│   └── docs.css
 ├── scripts/           # Script files
-│   └── main.js
+│   ├── main.js
+│   ├── apps-main.js
+│   └── docs.js
 └── README.md
 ```
 
@@ -93,6 +107,6 @@ canbox-pages/
 - Modify styles: Customize colors and layout in `styles/main.css`
 - Add images: Place images in the `images/` directory
 
-## 许可证
+## License
 
 Apache 2.0
