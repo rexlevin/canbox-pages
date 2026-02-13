@@ -18,7 +18,7 @@ const jsonbox = {
 
 const hostsbox = {
     name: 'HostsBox',
-    id: 'com.gitee.lizl6.cb-hostsbox',
+    id: 'com.github.rexlevin.cb-hostsbox',
     description: '系统 Hosts 文件管理工具，快速切换和管理本地域名映射，支持多配置文件。',
     description_en: 'System Hosts file manager, quickly switch and manage local domain mapping, supports multiple config files.',
     author: 'rexlevin',
