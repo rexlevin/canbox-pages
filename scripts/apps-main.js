@@ -56,6 +56,12 @@ function renderApps() {
 
         return `
             <div class="app-card" data-category="${app.category}">
+                <button class="copy-repo-btn" data-repo="${app.repo}" title="${currentLang === 'en' ? 'Copy repo URL' : '复制仓库地址'}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                </button>
                 <div class="app-header">
                     <img src="${app.logo}" alt="${app.name}" class="app-logo" onerror="this.src='${defaultAppLogo}'">
                     <div class="app-info">
@@ -119,6 +125,11 @@ function updateAppLanguage() {
         } else if (currentLang === 'zh' && zhText) {
             btn.textContent = zhText;
         }
+    });
+
+    // 更新复制按钮的 title
+    document.querySelectorAll('.copy-repo-btn').forEach(btn => {
+        btn.title = currentLang === 'en' ? 'Copy repo URL' : '复制仓库地址';
     });
 }
 
@@ -220,4 +231,24 @@ document.addEventListener('DOMContentLoaded', () => {
             submitContent.classList.toggle('open');
         });
     }
+
+    // 复制仓库地址功能
+    document.addEventListener('click', async (e) => {
+        const copyBtn = e.target.closest('.copy-repo-btn');
+        if (copyBtn) {
+            const repo = copyBtn.getAttribute('data-repo');
+            try {
+                await navigator.clipboard.writeText(repo);
+                const originalTitle = copyBtn.title;
+                copyBtn.classList.add('copied');
+                copyBtn.title = currentLang === 'en' ? 'Copied!' : '已复制！';
+                setTimeout(() => {
+                    copyBtn.classList.remove('copied');
+                    copyBtn.title = originalTitle;
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy:', err);
+            }
+        }
+    });
 });

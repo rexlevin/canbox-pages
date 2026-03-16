@@ -200,12 +200,54 @@
     border: 2px solid transparent;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .app-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
     border-color: var(--primary-color);
+}
+
+.copy-repo-btn {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    z-index: 10;
+    padding: 0;
+}
+
+.copy-repo-btn:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.copy-repo-btn:hover svg {
+    stroke: white;
+}
+
+.copy-repo-btn.copied {
+    background-color: #10b981;
+    border-color: #10b981;
+}
+
+.copy-repo-btn.copied svg {
+    stroke: white;
+}
+
+.copy-repo-btn svg {
+    color: var(--text-secondary);
+    transition: stroke 0.2s;
 }
 
 .app-header {
