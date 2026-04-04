@@ -48,4 +48,20 @@ const passgen = {
     homepage: 'https://github.com/rexlevin/cb-passgen'
 };
 
-export default [jsonbox, hostsbox, passgen];
+const imagebox = {
+    name: 'ImageBox',
+    id: 'com.github.rexlevin.imagebox',
+    description: 'Canbox 图片工具箱 - 压缩、水印、转换、尺寸调整、截图美化',
+    description_en: 'Canbox image toolkit - compress, watermark, convert, resize, and beautify your images',
+    author: 'rexlevin',
+    category: 'graphics',
+    tags: ['image', 'compress', 'watermark', 'convert', 'resize', 'screenshot'],
+    repo: 'https://github.com/rexlevin/cb-imagebox',
+    logo: 'https://github.com/rexlevin/cb-imagebox/raw/main/logo.png',
+    license: 'Apache 2.0',
+    version: '0.0.1',
+    downloads: '0+',
+    homepage: 'https://github.com/rexlevin/cb-imagebox'
+};
+
+export default [jsonbox, hostsbox, passgen, imagebox];
